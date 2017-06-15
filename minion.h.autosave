@@ -1,0 +1,8 @@
+#ifndef MINION_H
+#define MINION_H
+
+class Minion1 : public QObject,public QGraphicsPixmapItem{
+    Q_OBJECT
+    
+
+#endif // MINION_H

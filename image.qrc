@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Minion.png</file>
+        <file>minionred.jpg</file>
+        <file>bullet1.png</file>
+        <file>tower.png</file>
+        <file>bullet.jpg</file>
+        <file>etower 1.png</file>
+        <file>minion3.jpg</file>
+        <file>EE1.png</file>
+        <file>EE2.png</file>
+        <file>EE3.png</file>
+        <file>EE4.png</file>
+        <file>EE5.png</file>
+        <file>EE6.png</file>
+        <file>EE7.png</file>
+        <file>EE8.png</file>
+        <file>ttower.png</file>
+        <file>Fog.jpg</file>
+        <file>fire.jpg</file>
+        <file>fire.png</file>
+    </qresource>
+</RCC>
