@@ -1,5 +1,6 @@
-#ifndef TOWER_H
-#define TOWER_H
+#ifndef MYTOWER3_H
+#define MYTOWER3_H
+
 #include<QGraphicsPixmapItem>
 #include<QGraphicsPolygonItem>
 #include<QGraphicsItem>
@@ -7,11 +8,11 @@
 #include<QObject>
 #include<QTimer>
 
-class Tower: public QObject, public QGraphicsPixmapItem{
+class Tower3: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
 public:
-    Tower (QGraphicsItem * parent=0);
+    Tower3 (QGraphicsItem * parent=0);
 
     QGraphicsPolygonItem * attack_area;
 
@@ -25,7 +26,7 @@ public:
     QTimer * timer = new QTimer(this);
     QTimer * timerd = new QTimer(this);
     int hp;
-    ~Tower();
+    ~Tower3();
 
 public slots:
     void dead();
@@ -35,4 +36,4 @@ public slots:
 };
 
 
-#endif // TOWER_H
+#endif // MYTOWER3_H

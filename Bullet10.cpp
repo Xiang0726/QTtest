@@ -11,7 +11,7 @@ extern Game * game;
 Bullet10::Bullet10(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
 
     // set graphics
-    setPixmap(QPixmap(":images/bullet.jpg"));
+    setPixmap(QPixmap(":images/bullet1.png"));
 
     // connect a timer to move()
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
@@ -31,15 +31,11 @@ void Bullet10::move(){
     double dx = slope * qCos(qDegreesToRadians(theta));
     this ->setPos(x()+dx,y()+dy);
 
-    // delete after collide with enemy
-    QList <QGraphicsItem*>coenemy = this -> collidingItems();
-    int a = coenemy.size();
-    for(int i = 0;i<a;i++){
-        if(typeid(*(coenemy[i])) == typeid(Minion1)||this->x()>1200||this->x()<-200){
+    if(this->pos().x()<0){
+        scene()->removeItem(this);
+        delete this;
+    }
 
-              scene() -> removeItem(this);
-              delete this;
-              break;
-          }
-      }
+
+
 }

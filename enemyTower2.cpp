@@ -30,7 +30,7 @@ enemyTower2::enemyTower2(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem
            << QPointF (1,3) << QPointF (0,2) << QPointF (0,1);
 
     //scale
-    int scale = 60;
+    int scale = 79;
     for(size_t a=0,n=points.size();a<n;a++){
           points[a] = points[a] * scale;
       }
@@ -88,6 +88,7 @@ void enemyTower2::dead(){
         Game::a+=1;
         scene()->removeItem(this);
         delete this;
+        game->reminding();
         game->final_win();
     }
 }

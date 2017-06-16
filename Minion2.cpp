@@ -145,10 +145,17 @@ void Minion2::move(){
 }
 
 void Minion2::hurt(){
-QList<QGraphicsItem *> colliding_items = attack_area -> collidingItems();
-for (int i = 0, n = colliding_items.size(); i < n; ++i)
-  {
-    if(dynamic_cast<TBullet1*>(colliding_items[i])){ this->hp--; }
-    else if(dynamic_cast<Bullet10*>(colliding_items[i])){ this->hp--; }
-  }
+    QList<QGraphicsItem *> colliding_items = attack_area -> collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i)
+    {   Bullet10 * b1 = dynamic_cast<Bullet10 *>(colliding_items[i]);
+        TBullet1 * b2 = dynamic_cast<TBullet1 *>(colliding_items[i]);
+        if(b1){ this->hp--;
+                scene()->removeItem(b1);
+                delete b1;
+        }
+        if(b2){ this ->hp--;
+                scene()->removeItem(b2);
+                delete b2;
+        }
+}
 }

@@ -10,7 +10,7 @@
 #include "Game.h"
 #include <Bullet1.h>
 #include <QList>
-#include <Tower.h>
+#include <myTower1.h>
 #include "Bullet10.h"
 #include"Bullet3.h"
 #include"enemyTower1.h"
@@ -159,8 +159,15 @@ void Minion3::move(){
 void Minion3::hurt(){
     QList<QGraphicsItem *> colliding_items = attack_area -> collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
-    {
-        if(dynamic_cast<TBullet1*>(colliding_items[i])){ this->hp--; }
-        else if(dynamic_cast<Bullet10*>(colliding_items[i])){ this->hp--; }
-    }
+    {   Bullet10 * b1 = dynamic_cast<Bullet10 *>(colliding_items[i]);
+        TBullet1 * b2 = dynamic_cast<TBullet1 *>(colliding_items[i]);
+        if(b1){ this->hp--;
+                scene()->removeItem(b1);
+                delete b1;
+        }
+        if(b2){ this ->hp--;
+                scene()->removeItem(b2);
+                delete b2;
+        }
+}
 }

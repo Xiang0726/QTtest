@@ -1,4 +1,4 @@
-#include"Tower.h"
+#include"myTower1.h"
 #include<QPixmap>
 #include<QVector>
 #include<QPointF>
@@ -10,9 +10,10 @@
 #include"Enemy1.h"
 #include"Fog.h"
 #include"Bullet10.h"
+#include<QDebug>
 
 extern Game * game;
-Tower::Tower(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
+Tower1::Tower1(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
 
     // set graphics
     setPixmap(QPixmap(":/images/ttower.png"));
@@ -26,7 +27,7 @@ Tower::Tower(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
            << QPointF (1,3) << QPointF (0,2) << QPointF (0,1);
 
     // scale
-      int scale = 60;
+      int scale =65;
       for(size_t a=0,n=points.size();a<n;a++){
           points[a] = points[a] * scale;
       }
@@ -41,7 +42,7 @@ Tower::Tower(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
     QPointF polygon_center(1.5,1.5);
     polygon_center = polygon_center * scale;
     polygon_center = mapToScene(polygon_center);
-    QPointF tower_center (x()+30,y()+55);
+    QPointF tower_center (x()+60,y()+70);
     QLineF line(polygon_center,tower_center);
     attack_area->setPos(x()+line.dx(),y()+line.dy());
 
@@ -57,23 +58,24 @@ Tower::Tower(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
     attack_dest= QPointF (500,0);
 }
 
-double Tower::distance_to(QGraphicsItem *item){
+double Tower1::distance_to(QGraphicsItem *item){
     QLineF line(pos(),item->pos());
     return line.length();
 
 }
 
-void Tower::attack_target(){
-
+void Tower1::attack_target(){
+    if(target_exist == true){
    Bullet1 * bullet = new Bullet1();
    bullet->setPos(x(),y());
    QLineF ln(QPointF(x(),y()),QPointF(attack_dest.x()+30,attack_dest.y()+30));
    int angle = -1 * ln.angle();
    bullet->setRotation(angle);
    game->scene->addItem(bullet);
+    }
 }
 
-Tower::~Tower(){
+Tower1::~Tower1(){
     // delete timer
     timer->stop();
     delete timer;
@@ -81,16 +83,17 @@ Tower::~Tower(){
     delete timerd;
 }
 
-void Tower::dead(){
+void Tower1::dead(){
     if(this->hp <= 0){
-        Game::a+=1;
+        Game::b+=1;
         scene()->removeItem(this);
         delete this;
-        game->final_win();
+        game->final_lose();
+        game->warning();
     }
 }
 
-void Tower::acquire_target(){
+void Tower1::acquire_target(){
     // get a list of all items colliding with attack_area
     QList<QGraphicsItem *> colliding_items = attack_area->collidingItems();
 

@@ -10,7 +10,7 @@
 #include "Game.h"
 #include <Bullet1.h>
 #include <QList>
-#include <Tower.h>
+#include <myTower1.h>
 #include "Bullet10.h"
 #include"enemyTower1.h"
 #include"TBullet1.h"

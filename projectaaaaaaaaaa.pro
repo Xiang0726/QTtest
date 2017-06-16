@@ -14,7 +14,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     Game.cpp \
-    Tower.cpp \
     Enemy1.cpp \
     Minion1.cpp \
     Minion2.cpp \
@@ -31,11 +30,13 @@ SOURCES += main.cpp \
     fog.cpp \
     Minion4.cpp \
     Hero.cpp \
-    Dialog.cpp
+    Dialog.cpp \
+    myTower1.cpp \
+    myTower2.cpp \
+    myTower3.cpp
 
 HEADERS  += \
     Game.h \
-    Tower.h \
     Enemy1.h \
     Minion1.h \
     Minion2.h \
@@ -52,7 +53,10 @@ HEADERS  += \
     fog.h \
     Minion4.h \
     Hero.h \
-    Dialog.h
+    Dialog.h \
+    myTower2.h \
+    myTower3.h \
+    myTower1.h
 
 FORMS    +=
 

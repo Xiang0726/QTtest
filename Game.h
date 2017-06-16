@@ -63,6 +63,16 @@ public:
     int r;
     int w;
 
+    void warning();
+    QLabel * warning1;
+    QTimer * warning_timer ;
+
+
+    void reminding();
+    QLabel * reminding1;
+    QTimer * reminding_timer ;
+
+
 public slots:
 
     void chose1();
@@ -84,6 +94,9 @@ public slots:
     void beginingB();
     void beginingC();
     void back();
+    void sending_warning();
+    void sending_reminding();
+
 
 };
 

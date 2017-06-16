@@ -13,6 +13,11 @@
 #include"Bullet10.h"
 #include"Bullet3.h"
 #include"Minion3.h"
+#include"myTower1.h"
+#include"myTower2.h"
+#include"myTower3.h"
+#include"Minion4.h"
+
 extern Game * game;
 
 Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
@@ -80,7 +85,11 @@ void Enemy1::move(){
      for (int i = 0, n = colliding_items.size(); i < n; ++i)
      {
 
-         if( dynamic_cast<Minion1*>(colliding_items[i])||dynamic_cast<Minion3*>(colliding_items[i])){
+         if( dynamic_cast<Minion1*>(colliding_items[i])
+           ||dynamic_cast<Minion2*>(colliding_items[i])
+           ||dynamic_cast<Minion3*>(colliding_items[i])
+           ||dynamic_cast<Minion4*>(colliding_items[i]))
+           {
 
          QLineF ln(this->pos(),colliding_items[i]->pos());
          int distance = ln.length();
@@ -91,6 +100,44 @@ void Enemy1::move(){
                  has = true;
                }
             }
+         if(dynamic_cast<Tower1*>  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+                     setPos(x()+5,y());
+                   }
+                }
+         if(dynamic_cast<Tower2*>  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+                     setPos(x()+5,y());
+                   }
+                }
+         if(dynamic_cast<Tower3*>  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+                     setPos(x()+5,y());
+                   }
+                }
+
+
          else if(dynamic_cast<Enemy1*>(colliding_items[i])==this){ continue; }
 
          if(dynamic_cast<Bullet1*>(colliding_items[i])){
