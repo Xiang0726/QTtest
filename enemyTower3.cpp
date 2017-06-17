@@ -18,7 +18,7 @@ extern Game * game;
 enemyTower3::enemyTower3(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
 
     // set graphics
-    setPixmap(QPixmap(":/images/tower.png"));
+    setPixmap(QPixmap(":/images/etower1.png"));
 
     //set hp
     hp = 200;
@@ -29,7 +29,7 @@ enemyTower3::enemyTower3(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem
            << QPointF (1,3) << QPointF (0,2) << QPointF (0,1);
 
     //scale
-    int scale = 79;
+    int scale = 70;
     for(size_t a=0,n=points.size();a<n;a++){
           points[a] = points[a] * scale;
 }
@@ -44,7 +44,7 @@ enemyTower3::enemyTower3(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem
     QPointF polygon_center(1.5,1.5);
     polygon_center = polygon_center * scale;
     polygon_center = mapToScene(polygon_center);
-    QPointF tower_center (x()+30,y()+55);
+    QPointF tower_center (x()+55,y()+85);
     QLineF line(polygon_center,tower_center);
     attack_area->setPos(x()+line.dx(),y()+line.dy());
 

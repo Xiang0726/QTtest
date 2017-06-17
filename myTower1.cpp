@@ -16,7 +16,7 @@ extern Game * game;
 Tower1::Tower1(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
 
     // set graphics
-    setPixmap(QPixmap(":/images/ttower.png"));
+    setPixmap(QPixmap(":/images/maintower.png"));
 
     // set hp
     hp = 200;
@@ -42,7 +42,7 @@ Tower1::Tower1(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem(parent){
     QPointF polygon_center(1.5,1.5);
     polygon_center = polygon_center * scale;
     polygon_center = mapToScene(polygon_center);
-    QPointF tower_center (x()+60,y()+70);
+    QPointF tower_center (x()+70,y()+60);
     QLineF line(polygon_center,tower_center);
     attack_area->setPos(x()+line.dx(),y()+line.dy());
 

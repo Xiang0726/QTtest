@@ -19,5 +19,7 @@
         <file>Fog.jpg</file>
         <file>fire.jpg</file>
         <file>fire.png</file>
+        <file>etower1.png</file>
+        <file>maintower.png</file>
     </qresource>
 </RCC>

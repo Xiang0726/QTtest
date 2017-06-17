@@ -53,7 +53,7 @@ Minion4::Minion4(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     QPointF poly_center(1.5,1.5);
     poly_center = poly_center * scale;
     poly_center = mapToScene(poly_center);
-    QPointF Minion_center(x()+40,y()+45);
+    QPointF Minion_center(x()+30,y()+50);
     QLineF ln(poly_center,Minion_center);
     attack_area->setPos(x()+ln.dx(),y()+ln.dy());
 }

@@ -38,7 +38,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
            << QPoint(1,3) << QPoint(0,2) << QPoint(0,1);
     // scale polygon
     int i,n;
-    int scale = 60;
+    int scale = 45;
     for(i=0,n=points.size();i<n;i++){
        points[i]=points[i]*scale;
    }

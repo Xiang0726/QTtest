@@ -224,18 +224,18 @@ void Game::beginingA(){
 
     // create tower
     Tower1 * t1 = new Tower1();
-    t1->setPos(0,35);
+    t1->setPos(50,40);
     Tower2 * t2 = new Tower2();
-    t2->setPos(0,275);
+    t2->setPos(0,240);
     Tower3 * t3 = new Tower3();
-    t3->setPos(0,515);
+    t3->setPos(50,440);
 
     enemyTower1 * t10 = new enemyTower1();
-    t10->setPos(900,35);
+    t10->setPos(800,40);
     enemyTower2 * t20 = new enemyTower2();
-    t20->setPos(950,275);
+    t20->setPos(850,240);
     enemyTower3 * t30 = new enemyTower3();
-    t30->setPos(900,515);
+    t30->setPos(800,440);
 
     // add tower to scene
     scene->addItem(t10);
