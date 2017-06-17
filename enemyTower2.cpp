@@ -67,12 +67,15 @@ double enemyTower2::distance_to(QGraphicsItem *item){
 }
 
 void enemyTower2::attack_target(){
+    if(targetexist == 1){
    TBullet1 * bullet = new TBullet1();
    bullet->setPos(x(),y());
    QLineF ln(QPointF(x(),y()),QPointF(attack_dest.x()+30,attack_dest.y()+30));
    int angle = -1 * ln.angle();
    bullet->setRotation(angle);
    game->scene->addItem(bullet);
+   targetexist = 0;
+}
 }
 
 enemyTower2::~enemyTower2(){
@@ -98,7 +101,7 @@ void enemyTower2::acquire_target(){
     QList<QGraphicsItem *> colliding_items = attack_area->collidingItems();
 
     if(colliding_items.size() == 1){
-        target_exist = false;
+        targetexist = 0;
         return;
 }
     double closest_dist = 300;
@@ -112,37 +115,40 @@ void enemyTower2::acquire_target(){
         Bullet1 * b1 = dynamic_cast<Bullet1 *>(colliding_items[a]);
         Bullet3 * b3 = dynamic_cast<Bullet3 *>(colliding_items[a]);
         Minion4 * m4 = dynamic_cast<Minion4 *>(colliding_items[a]);
+
         if(m1){
             double this_list =distance_to(m1);
               if(this_list < closest_dist){
                 closest_dist = this_list;
                 closest_point = colliding_items[a]->pos();
-                target_exist = true;
+                targetexist = 1;
             }}
    else if(m2){
             double this_list =distance_to(m2);
               if(this_list < closest_dist){
                     closest_dist = this_list;
                     closest_point = colliding_items[a]->pos();
-                    target_exist = true;
+                    targetexist = 1;
             }}
    else if(m3){
             double this_list =distance_to(m3);
               if(this_list < closest_dist){
                         closest_dist = this_list;
                         closest_point = colliding_items[a]->pos();
-                        target_exist = true;
+                        targetexist = 1;
                     }}
     else if(m4){
                  double this_list =distance_to(m4);
                    if(this_list < closest_dist){
                              closest_dist = this_list;
                              closest_point = colliding_items[a]->pos();
-                             target_exist = true;
+                             targetexist = 1;
                          }}
    else if(b1||b3){
             this->hp--;
         }
+
+
      }
     attack_dest= closest_point;
     attack_target();

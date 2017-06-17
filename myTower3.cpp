@@ -65,13 +65,14 @@ double Tower3::distance_to(QGraphicsItem *item){
 }
 
 void Tower3::attack_target(){
-    if(target_exist == true){
+    if(targetexist == 1 ){
    Bullet1 * bullet = new Bullet1();
    bullet->setPos(x(),y());
    QLineF ln(QPointF(x(),y()),QPointF(attack_dest.x()+30,attack_dest.y()+30));
    int angle = -1 * ln.angle();
    bullet->setRotation(angle);
    game->scene->addItem(bullet);
+   targetexist =0;
     }
 }
 
@@ -98,7 +99,7 @@ void Tower3::acquire_target(){
     QList<QGraphicsItem *> colliding_items = attack_area->collidingItems();
 
     if(colliding_items.size() == 1){
-        target_exist = false;
+        targetexist = 0;
         return;
 }
     double closest_dist = 300;
@@ -113,8 +114,9 @@ void Tower3::acquire_target(){
               if(this_list < closest_dist){
                  closest_dist = this_list;
                  closest_point = colliding_items[a]->pos();
-                 target_exist = true;
+                 targetexist = 1;
             }}
+
 
         if(b1){
             this->hp--;

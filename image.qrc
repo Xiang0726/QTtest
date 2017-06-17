@@ -21,5 +21,9 @@
         <file>fire.png</file>
         <file>etower1.png</file>
         <file>maintower.png</file>
+        <file>bg.jpg</file>
+        <file>bg1.jpg</file>
+        <file>bg3.jpg</file>
+        <file>moster.png</file>
     </qresource>
 </RCC>

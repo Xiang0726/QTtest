@@ -221,6 +221,11 @@ void Game::beginingA(){
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     setScene(scene);
+    bg = new QGraphicsPixmapItem;
+    bg ->setPixmap(QPixmap(":images/bg3.jpg"));
+    scene->addItem(bg);
+    bg->setPos(-300,0);
+
 
     // create tower
     Tower1 * t1 = new Tower1();

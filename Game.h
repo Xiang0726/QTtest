@@ -11,6 +11,7 @@
 #include "fog.h"
 #include"Fireball.h"
 #include"Dialog.h"
+#include<QGraphicsPixmapItem>
 
 class Game: public QGraphicsView{
     Q_OBJECT
@@ -71,6 +72,8 @@ public:
     void reminding();
     QLabel * reminding1;
     QTimer * reminding_timer ;
+
+    QGraphicsPixmapItem * bg;
 
 
 public slots:

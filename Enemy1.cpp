@@ -23,10 +23,10 @@ extern Game * game;
 Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     // define hp
-    hp = 10;
+    hp = 20;
 
     // draw pic
-    setPixmap(QPixmap(":images/Minion.png"));
+    setPixmap(QPixmap(":images/moster.png"));
 
     // set timer
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
@@ -50,7 +50,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     QPointF poly_center(1.5,1.5);
     poly_center = poly_center * scale;
     poly_center = mapToScene(poly_center);
-    QPointF Minion_center(x()+28,y()+40);
+    QPointF Minion_center(x()+60,y()+40);
     QLineF ln(poly_center,Minion_center);
     attack_area->setPos(x()+ln.dx(),y()+ln.dy());
 }
@@ -85,7 +85,43 @@ void Enemy1::move(){
      for (int i = 0, n = colliding_items.size(); i < n; ++i)
      {
 
-         if( dynamic_cast<Minion1*>(colliding_items[i])
+         if(dynamic_cast<Tower1 * >  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+
+                   }
+                }
+         else if(dynamic_cast<Tower2*>  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+
+                   }
+                }
+         else if(dynamic_cast<Tower3*>  (colliding_items[i])){
+
+             QLineF ln(this->pos(),colliding_items[i]->pos());
+             int distance = ln.length();
+
+                 if(distance<=closedistance){
+                     closedistance = distance;
+                     target = colliding_items[i]->pos();
+                     has = true;
+
+                   }
+                }
+        else if( dynamic_cast<Minion1*>(colliding_items[i])
            ||dynamic_cast<Minion2*>(colliding_items[i])
            ||dynamic_cast<Minion3*>(colliding_items[i])
            ||dynamic_cast<Minion4*>(colliding_items[i]))
@@ -100,45 +136,9 @@ void Enemy1::move(){
                  has = true;
                }
             }
-         if(dynamic_cast<Tower1*>  (colliding_items[i])){
-
-             QLineF ln(this->pos(),colliding_items[i]->pos());
-             int distance = ln.length();
-
-                 if(distance<=closedistance){
-                     closedistance = distance;
-                     target = colliding_items[i]->pos();
-                     has = true;
-                     setPos(x()+5,y());
-                   }
-                }
-         if(dynamic_cast<Tower2*>  (colliding_items[i])){
-
-             QLineF ln(this->pos(),colliding_items[i]->pos());
-             int distance = ln.length();
-
-                 if(distance<=closedistance){
-                     closedistance = distance;
-                     target = colliding_items[i]->pos();
-                     has = true;
-                     setPos(x()+5,y());
-                   }
-                }
-         if(dynamic_cast<Tower3*>  (colliding_items[i])){
-
-             QLineF ln(this->pos(),colliding_items[i]->pos());
-             int distance = ln.length();
-
-                 if(distance<=closedistance){
-                     closedistance = distance;
-                     target = colliding_items[i]->pos();
-                     has = true;
-                     setPos(x()+5,y());
-                   }
-                }
 
 
-         else if(dynamic_cast<Enemy1*>(colliding_items[i])==this){ continue; }
+
 
          if(dynamic_cast<Bullet1*>(colliding_items[i])){
                 hp--;
@@ -148,12 +148,13 @@ void Enemy1::move(){
 
      if(has == true){
         attack();
+     }
 
        if(this->hp <= 0){
          scene() ->removeItem(this);
          delete this;
                         }
-                    }
+
 
      if (pos().x()>1300){
              scene()->removeItem(this);

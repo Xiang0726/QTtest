@@ -21,6 +21,7 @@ public:
 
     void attack_target();
     bool target_exist ;
+    int targetexist;
     int hp;
     QTimer * timer = new QTimer();
     QTimer * timerd = new QTimer();
