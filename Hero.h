@@ -14,8 +14,8 @@ public:
     Hero(QGraphicsPixmapItem * parent = 0);
     ~Hero();
     void keyPressEvent(QKeyEvent * event);
-    QTimer * life_timer = new QTimer(this);
-    QTimer * attack_timer= new QTimer(this);
+    QTimer * life_timer ;
+    QTimer * attack_timer;
 public slots:
     void attack();
     void dead();

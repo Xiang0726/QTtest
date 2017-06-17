@@ -8,7 +8,7 @@ class Bullet10: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Bullet10(QGraphicsItem * parent=0);
-    QTimer * move_timer = new QTimer(this);
+    QTimer * move_timer ;
     ~Bullet10();
     int from;
 

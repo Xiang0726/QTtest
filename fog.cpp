@@ -11,7 +11,7 @@
 
 fog::fog()
 {
-    setPixmap(QPixmap(":images/Fog.jpg"));
+    setPixmap(QPixmap(":images/fog3.jpg"));
 
 
 }

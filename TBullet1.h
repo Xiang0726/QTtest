@@ -8,7 +8,7 @@ class TBullet1: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     TBullet1(QGraphicsItem * parent=0);
-    QTimer * move_timer = new QTimer(this);
+    QTimer * move_timer ;
     ~TBullet1();
     int from;
 

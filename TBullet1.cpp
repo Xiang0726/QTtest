@@ -15,6 +15,7 @@ TBullet1::TBullet1(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":images/bullet1.png"));
 
     // connect a timer to move()
+    move_timer = new QTimer(this);
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
     move_timer->start(10);
 }

@@ -12,13 +12,21 @@
 extern Game * game;
 
 Fireball::Fireball(QGraphicsItem *parent)
-{
-    // draw pic
-    setPixmap(QPixmap(":images/fire.png"));
+{   state = 1;
+    // draw
 
+    changetimer = new QTimer(this);
+    connect(changetimer,SIGNAL(timeout()),this,SLOT(change()));
+    changetimer ->start(500);
+
+
+    movetimer = new QTimer(this);
     connect(movetimer,SIGNAL(timeout()),this,SLOT(move()));
     movetimer -> start(50);
 
+
+
+    deadtimer = new QTimer(this);
    connect(deadtimer,SIGNAL(timeout()),this,SLOT(dead()));
    deadtimer -> start(50000);
 }
@@ -46,6 +54,22 @@ void Fireball::move()
     }
 
 }
+
+void Fireball::change()
+{ if(state == 1){
+          setPixmap(QPixmap(":images/fires.png"));
+          state = 2;
+
+            }
+ else if(state ==2){
+          setPixmap(QPixmap(":images/fire.png"));
+          state = 1;
+    }
+
+}
+
+
+
 
 void Fireball::dead()
 {

@@ -29,6 +29,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     setPixmap(QPixmap(":images/moster.png"));
 
     // set timer
+     move_timer = new QTimer(this);
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
     move_timer->start(200);
 
@@ -66,7 +67,7 @@ void Enemy1::attack()
     int angle = -1 * lnn.angle();
     Bullet10 *bullet10 = new Bullet10;
     bullet10 ->from = 10;
-    bullet10 -> setPos(x(),y());
+    bullet10 -> setPos(x()+30,y()+30);
     bullet10 ->setRotation(angle);
     game -> scene -> addItem(bullet10);
 }
@@ -94,6 +95,7 @@ void Enemy1::move(){
                      closedistance = distance;
                      target = colliding_items[i]->pos();
                      has = true;
+                     setPos(x()+5,y());
 
                    }
                 }
@@ -106,6 +108,7 @@ void Enemy1::move(){
                      closedistance = distance;
                      target = colliding_items[i]->pos();
                      has = true;
+                     setPos(x()+5,y());
 
                    }
                 }
@@ -118,7 +121,7 @@ void Enemy1::move(){
                      closedistance = distance;
                      target = colliding_items[i]->pos();
                      has = true;
-
+                        setPos(x()+5,y());
                    }
                 }
         else if( dynamic_cast<Minion1*>(colliding_items[i])
@@ -142,6 +145,10 @@ void Enemy1::move(){
 
          if(dynamic_cast<Bullet1*>(colliding_items[i])){
                 hp--;
+             delete colliding_items[i];
+         }
+         if(dynamic_cast<fog*>(colliding_items[i])){
+
              delete colliding_items[i];
          }
      }

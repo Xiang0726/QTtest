@@ -50,10 +50,12 @@ enemyTower2::enemyTower2(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem
     attack_area->setPos(x()+line.dx(),y()+line.dy());
 
     // connect a timer to attack_target
+    timer =  new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(acquire_target()));
     timer->start(200);
 
     // connect a timer to dead
+    timerd  = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(dead()));
     timerd->start(200);
 

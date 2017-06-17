@@ -8,10 +8,13 @@ class Fireball : public QObject,public QGraphicsPixmapItem{
 public:
     Fireball(QGraphicsItem * parent = 0);
     ~Fireball();
-    QTimer * movetimer = new QTimer(this);
-    QTimer * deadtimer = new QTimer(this);
+    QTimer * movetimer;
+    QTimer * changetimer;
+    QTimer * deadtimer;
+    int state;
 public slots:
    void move();
+   void change();
    void dead();
 };
 #endif // FIREBALL_H

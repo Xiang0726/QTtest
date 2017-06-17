@@ -266,7 +266,7 @@ void Game::beginingA(){
     connect(hero,SIGNAL(clicked()),this,SLOT(sethero()));
 
     connect(appear_timer,SIGNAL(timeout()),this,SLOT(appear()));
-    appear_timer->start(100000);
+    appear_timer->start(0.0000000001);
 
     magic = new QPushButton("magic");
     magic ->setGeometry(-200,500,50,50);
@@ -277,7 +277,7 @@ void Game::beginingA(){
     mp -> start(3000);
 
     connect(bad,SIGNAL(timeout()),this,SLOT(setenemy()));
-    bad ->start(5000);
+    bad ->start(4000);
 
     connect(energy,SIGNAL(timeout()),this,SLOT(energyup()));
     energy->start(25000);
@@ -646,9 +646,9 @@ void Game::choose4()
 }
 
 void Game::appear(){
-    int x1 = qrand()%450+350;
+    int x1 = qrand()%350+400;
     int y1 = qrand()%600;
-    int x2 = qrand()%450+350;
+    int x2 = qrand()%350+400;
     int y2 = qrand()%600;
     fog * f1 = new fog();
     fog * f2 = new fog();

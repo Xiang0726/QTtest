@@ -23,8 +23,8 @@ public:
     bool target_exist ;
     int targetexist;
     int hp;
-    QTimer * timer = new QTimer();
-    QTimer * timerd = new QTimer();
+    QTimer * timer ;
+    QTimer * timerd ;
     ~enemyTower2();
 
 public slots:

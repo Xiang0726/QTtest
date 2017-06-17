@@ -9,7 +9,7 @@ class Bullet3: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Bullet3(QGraphicsItem * parent=0);
-    QTimer * move_timer = new QTimer(this);
+    QTimer * move_timer ;
     ~Bullet3();
 
 

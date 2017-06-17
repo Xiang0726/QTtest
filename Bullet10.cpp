@@ -14,6 +14,7 @@ Bullet10::Bullet10(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":images/bullet1.png"));
 
     // connect a timer to move()
+    move_timer = new QTimer(this);
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
     move_timer->start(10);
 }
@@ -31,11 +32,10 @@ void Bullet10::move(){
     double dx = slope * qCos(qDegreesToRadians(theta));
     this ->setPos(x()+dx,y()+dy);
 
-    if(this->pos().x()<0){
+    if(this->pos().x()>2000 || this->pos().x()<-1000){
         scene()->removeItem(this);
         delete this;
     }
-
 
 
 }

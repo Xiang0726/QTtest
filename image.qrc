@@ -25,5 +25,9 @@
         <file>bg1.jpg</file>
         <file>bg3.jpg</file>
         <file>moster.png</file>
+        <file>fires.png</file>
+        <file>fog1.jpg</file>
+        <file>fog2.jpg</file>
+        <file>fog3.jpg</file>
     </qresource>
 </RCC>

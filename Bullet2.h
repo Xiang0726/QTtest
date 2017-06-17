@@ -10,7 +10,7 @@ class Bullet2: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Bullet2(QGraphicsItem * parent=0);
-    QTimer * move_timer = new QTimer(this);
+    QTimer * move_timer ;
     ~Bullet2();
 
 public slots:

@@ -24,9 +24,11 @@ Hero::Hero(QGraphicsPixmapItem *parent)
     // draw pic
     setPixmap(QPixmap(":images/EE7.png"));
 
+    life_timer = new QTimer(this);
     connect(life_timer,SIGNAL(timeout()),this,SLOT(dead()));
             life_timer->start(12000);
 
+    attack_timer = new QTimer(this);
     connect(attack_timer,SIGNAL(timeout()),this,SLOT(attack()));
     attack_timer->start(50);
 }

@@ -19,8 +19,8 @@ public:
     QPointF target;
     bool has;
     ~Enemy1();
+     QTimer * move_timer;
 
-    QTimer * move_timer = new QTimer(this);
 public slots:
     void move();
 

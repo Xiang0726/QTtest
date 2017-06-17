@@ -50,10 +50,12 @@ enemyTower1::enemyTower1(QGraphicsItem *parent): QObject(),  QGraphicsPixmapItem
     attack_area->setPos(x()+line.dx(),y()+line.dy());
 
     // connect a timer to attack_target
+    timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(acquire_target()));
     timer->start(200);
 
     // connect a timer to dead
+    timerd = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(dead()));
     timerd->start(200);
 
@@ -68,7 +70,7 @@ double enemyTower1::distance_to(QGraphicsItem *item){
 }
 
 void enemyTower1::attack_target(){
-    if(targetexist == 1){
+   if(targetexist == 1){
    TBullet1 * bullet = new TBullet1();
    bullet->setPos(x(),y());
    QLineF ln(QPointF(x(),y()),QPointF(attack_dest.x()+30,attack_dest.y()+30));

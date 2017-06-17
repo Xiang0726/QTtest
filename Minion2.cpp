@@ -24,10 +24,12 @@ Minion2::Minion2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     setPixmap(QPixmap(":images/EE2.png"));
 
     // set timer for move
+    move_timer = new QTimer(this);
     connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
     move_timer->start(200);
 
     // set timer for hurt
+    hurt_timer = new QTimer(this);
     connect(hurt_timer,SIGNAL(timeout()),this,SLOT(hurt()));
     hurt_timer->start(100);
 
