@@ -29,5 +29,8 @@
         <file>fog1.jpg</file>
         <file>fog2.jpg</file>
         <file>fog3.jpg</file>
+        <file>unnamed.png</file>
+        <file>Welcome back.jpg</file>
     </qresource>
+    <qresource prefix="/new/prefix1"/>
 </RCC>

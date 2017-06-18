@@ -24,8 +24,6 @@
 #include<QDebug>
 #include<QVector>
 #include"Dialog.h"
-#include<QDebug>
-
 
 int Game::a = 0;
 int Game::b = 0;
@@ -38,6 +36,13 @@ Game::Game(){
     scene_begining = new QGraphicsScene();
     scene_begining->setSceneRect(0,0,400,300);
     setScene(scene_begining);
+
+    bg1 = new QGraphicsPixmapItem;
+    bg1 ->setPixmap(QPixmap(":images/Welcome back.jpg"));
+    scene_begining->addItem(bg1);
+    bg1->setPos(-300,0);
+
+
 
     // create two buttons
     buttonA = new QPushButton("開始遊戲");
@@ -69,6 +74,19 @@ void Game::final_win()
                 scenewin = new QGraphicsScene();
                 scenewin->setSceneRect(0,0,800,600);
                 setScene(scenewin);
+
+
+                // add the background picture
+                bg3 = new QGraphicsPixmapItem;
+                bg3 ->setPixmap(QPixmap(":images/unnamed.png"));
+                scenewin->addItem(bg3);
+                bg3->setPos(-150,0);
+
+                bg3 = new QGraphicsPixmapItem;
+                bg3 ->setPixmap(QPixmap(":images/unnamed.png"));
+                scenewin->addItem(bg3);
+                bg3->setPos(500,0);
+
 
                 // display win
 
@@ -150,6 +168,19 @@ void Game::final_lose()
     scenelose->setSceneRect(0,0,800,600);
     setScene(scenelose);
 
+    // add the background picture
+    bg2 = new QGraphicsPixmapItem;
+    bg2 ->setPixmap(QPixmap(":images/unnamed.png"));
+    scenelose->addItem(bg2);
+    bg2->setPos(-150,0);
+
+    // add the background picture
+    bg2 = new QGraphicsPixmapItem;
+    bg2 ->setPixmap(QPixmap(":images/unnamed.png"));
+    scenelose->addItem(bg2);
+    bg2->setPos(500,0);
+
+
     // display lose
     QLabel * lose = new QLabel();
     lose->setText("你輸了這場遊戲");
@@ -189,7 +220,6 @@ void Game::warning()
 void Game::sending_warning()
 {
     warning1->setVisible(! warning1->isVisible());
-    qDebug() << "A";
 }
 
 
@@ -250,12 +280,12 @@ void Game::beginingA(){
     scene->addItem(t2);
     scene->addItem(t3);
 
-    button1 = new QPushButton("斯國峰");
+    button1 = new QPushButton("楊宏澤");
     button1 ->setGeometry(-200,100,100,100);
     scene->addWidget(button1);
     connect(button1, SIGNAL(clicked()), this, SLOT(chose1()));
 
-    button10 = new QPushButton("斯國峰");
+    button10 = new QPushButton("楊宏澤");
     button10 ->setGeometry(-200,200,100,100);
     scene->addWidget(button10);
     connect(button10, SIGNAL(clicked()), this, SLOT(choose1()));
@@ -403,7 +433,7 @@ void Game::chose1()
     int aa = qrand()%4+1;
     //delete button1;
     if(aa==1){
-        button1 = new QPushButton("斯國峰");
+        button1 = new QPushButton("楊宏澤");
         button1 ->setGeometry(-200,100,100,100);
         scene->addWidget(button1);
         connect(button1, SIGNAL(clicked()), this, SLOT(chose1()));
@@ -434,7 +464,7 @@ void Game::chose2()
     int aa = qrand()%4+1;
     //delete button2;
     if(aa==1){
-        button1 = new QPushButton("斯國峰");
+        button1 = new QPushButton("楊宏澤");
         button1 ->setGeometry(-200,100,100,100);
         scene->addWidget(button1);
         connect(button1, SIGNAL(clicked()), this, SLOT(chose1()));
@@ -465,7 +495,7 @@ void Game::chose3()
     int aa = qrand()%4+1;
     //delete button3;
     if(aa==1){
-        button1 = new QPushButton("斯國峰");
+        button1 = new QPushButton("楊宏澤");
         button1 ->setGeometry(-200,100,100,100);
         scene->addWidget(button1);
         connect(button1, SIGNAL(clicked()), this, SLOT(chose1()));
@@ -496,7 +526,7 @@ void Game::chose4()
     int aa = qrand()%4+1;
     //delete button4;
     if(aa==1){
-        button1 = new QPushButton("斯國峰");
+        button1 = new QPushButton("楊宏澤");
         button1 ->setGeometry(-200,100,100,100);
         scene->addWidget(button1);
         connect(button1, SIGNAL(clicked()), this, SLOT(chose1()));
@@ -527,7 +557,7 @@ void Game::choose1()
     int bb = qrand()%4+1;
     //delete button1;
     if(bb==1){
-        button10 = new QPushButton("斯國峰");
+        button10 = new QPushButton("楊宏澤");
         button10->setGeometry(-200,200,100,100);
         scene->addWidget(button10);
         connect(button10, SIGNAL(clicked()), this, SLOT(choose1()));
@@ -558,7 +588,7 @@ void Game::choose2()
     int bb = qrand()%4+1;
     //delete button2;
     if(bb==1){
-        button10 = new QPushButton("斯國峰");
+        button10 = new QPushButton("楊宏澤");
         button10 ->setGeometry(-200,200,100,100);
         scene->addWidget(button10);
         connect(button10, SIGNAL(clicked()), this, SLOT(choose1()));
@@ -589,7 +619,7 @@ void Game::choose3()
     int bb = qrand()%4+1;
     //delete button3;
     if(bb==1){
-        button10 = new QPushButton("斯國峰");
+        button10 = new QPushButton("楊宏澤");
         button10 ->setGeometry(-200,200,100,100);
         scene->addWidget(button10);
         connect(button10, SIGNAL(clicked()), this, SLOT(choose1()));
@@ -620,7 +650,7 @@ void Game::choose4()
     int bb = qrand()%4+1;
     //delete button4;
     if(bb==1){
-        button10 = new QPushButton("斯國峰");
+        button10 = new QPushButton("楊宏澤");
         button10 ->setGeometry(-200,200,100,100);
         scene->addWidget(button10);
         connect(button10, SIGNAL(clicked()), this, SLOT(choose1()));
@@ -708,36 +738,36 @@ void Game::back()
 }
 
 void Game::mousePressEvent(QMouseEvent *event){
-    if(event->x()<600){
+    if(event->x()<950){
 
     if(id == 1){
     // create minion1
     Minion1 * minion = new Minion1();
-    minion->setPos(event->x()-250,event->y());
+    minion->setPos(event->x()-550,event->y()-120);
     scene->addItem(minion);
     }
     else if(id == 2){
     // create minion2
     Minion2 * minion = new Minion2();
-    minion->setPos(event->x()-250,event->y());
+    minion->setPos(event->x()-550,event->y()-120);
     scene->addItem(minion);
     }
     if(id == 3){
     // create a minion3
     Minion3 * minion = new Minion3();
-    minion->setPos(event->x()-250,event->y());
+    minion->setPos(event->x()-550,event->y()-120);
     scene->addItem(minion);
     }
     if(id == 4){
     // create a minion4
     Minion4 * minion = new Minion4();
-    minion->setPos(event->x()-250,event->y());
+    minion->setPos(event->x()-550,event->y()-120);
     scene->addItem(minion);
     }
     if(id == 5){
     // create a ENEMY1
     Enemy1 * minion = new Enemy1();
-    minion->setPos(event->x()-250,event->y());
+    minion->setPos(event->x()-550,event->y()-120);
     scene->addItem(minion);
     }
     id = 0;

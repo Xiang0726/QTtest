@@ -1,5 +1,5 @@
-#include "Dialog.h"
-#include <QInputDialog>
+#include"Dialog.h"
+#include<QInputDialog>
 #include"Game.h"
 #include<QDebug>
 

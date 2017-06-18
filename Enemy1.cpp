@@ -26,7 +26,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     hp = 20;
 
     // draw pic
-    setPixmap(QPixmap(":images/moster.png"));
+    setPixmap(QPixmap(":images/EE7.png"));
 
     // set timer
      move_timer = new QTimer(this);

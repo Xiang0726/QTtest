@@ -74,6 +74,9 @@ public:
     QTimer * reminding_timer ;
 
     QGraphicsPixmapItem * bg;
+    QGraphicsPixmapItem * bg1;
+    QGraphicsPixmapItem * bg2;
+    QGraphicsPixmapItem * bg3;
 
 
 public slots:
